@@ -52,24 +52,30 @@ class Countdown extends Component {
       this.setState({min: this.timer.getTimeValues().minutes, sec: this.timer.getTimeValues().seconds})
     });
 
+    this.timer.removeEventListener('targetAchieved', this.onShortBreakFinished);
+    this.timer.removeEventListener('targetAchieved', this.onLongBreakFinished);
     this.timer.addEventListener('targetAchieved', this.onPomdoroFinished);
   }
 
   onPomdoroFinished() {
     var newLongBreakDelay = 0;
-      if(this.state.longBreakDelay != 0) 
+    var breakDuration = 0;
+      if(this.state.longBreakDelay != 0)  {
         newLongBreakDelay = this.state.longBreakDelay - 1;
-      else 
+        breakDuration = this.state.settings.shortBreakDuration;
+      }
+      else {
           newLongBreakDelay = this.state.settings.longBreakDelay;
-
-      this.setState( prevState => { 
-        return { 
+          breakDuration = this.state.settings.longBreakDuration;
+      }
+      this.setState(
+        { 
           longBreakDelay: newLongBreakDelay,
           started: false,
-          min: Math.floor(prevState.settings.shortBreakDuration),
-          sec:  (prevState.settings.shortBreakDuration * 60) % 60
+          min: Math.floor(breakDuration),
+          sec:  (breakDuration * 60) % 60
         } 
-      });
+      );
 
       this.stateMachine.finishPomodor();
   }
@@ -80,7 +86,18 @@ class Countdown extends Component {
     this.timer.addEventListener('targetAchieved', this.onShortBreakFinished);
   }
 
-  onShortBreakFinished() {alert("onShortBreakFinished");}
+  onShortBreakFinished() {
+    this.setState(prevState => {
+      return { 
+        started: false,
+        min: Math.floor(prevState.settings.pomodoroDuration),
+        sec: (prevState.settings.pomodoroDuration * 60) % 60  
+      }
+    });
+
+    this.stateMachine.finishShortBreak();
+
+  }
 
   onLongBreakStarted() {
     this.timer.start({countdown: true, startValues: {minutes: this.state.settings.longBreakDuration}});
@@ -88,7 +105,17 @@ class Countdown extends Component {
     this.timer.addEventListener('targetAchieved', this.onLongBreakFinished);
   }
 
-  onLongBreakFinished() {alert("onLongBreakFinished");}
+  onLongBreakFinished() {
+    this.setState(prevState => {
+      return { 
+        started: false,
+        min: Math.floor(prevState.settings.pomodoroDuration),
+        sec: (prevState.settings.pomodoroDuration * 60) % 60  
+      }
+    });
+
+    this.stateMachine.finishLongBreak();
+  }
 
   componentWillUnmount() {
     this.onStop();
@@ -113,6 +140,7 @@ class Countdown extends Component {
   }
 
   onStart() {
+    console.log(this.stateMachine.state);
     if(this.stateMachine.state === 'start') {
       this.stateMachine.startPomodoro();
     }
