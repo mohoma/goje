@@ -42,7 +42,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
           onClick={addSession}
           className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all transform hover:scale-105"
         >
-          <Plus size={20} className="text-[#FFEB3B]"/>
+          <Plus size={20} className="text-primary"/>
         </button>
       </div>
 
@@ -62,7 +62,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
               />
               <div className="w-6 h-6 flex items-center justify-center bg-white/5 border border-white/10 rounded-md">
                 {settings.autoStartBreaks && (
-                    <svg className="w-4 h-4 text-[#FFEB3B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                          xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
@@ -82,7 +82,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
               />
               <div className="w-6 h-6 flex items-center justify-center bg-white/5 border border-white/10 rounded-md">
                 {settings.autoStartPomodoros && (
-                    <svg className="w-4 h-4 text-[#FFEB3B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                          xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
@@ -109,16 +109,16 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">
-                  Duration (minutes)
-                </label>
-                <input
-                  type="number"
+                  <label className="block text-sm font-medium text-gray-400 mb-2">
+                    Duration (minutes)
+                  </label>
+                  <input
+                      type="number"
                   min="1"
                   value={session.duration}
                   onChange={(e) => updateSession(index, { duration: Math.max(1, parseInt(e.target.value)) })}
                   onBlur={(e) => updateSession(index, { duration: Math.max(1, parseInt(e.target.value) || 5) })}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#FFEB3B] focus:border-transparent appearance-none"
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent appearance-none"
                 />
               </div>
 
@@ -129,7 +129,7 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
                   <select
                       value={session.type}
                       onChange={(e) => updateSession(index, {type: e.target.value as TimerSession['type']})}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-[#FFEB3B] focus:border-transparent appearance-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent appearance-none"
                   >
                     <option value="pomodoro">Focus</option>
                     <option value="shortBreak">Short Break</option>

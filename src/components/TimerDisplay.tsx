@@ -47,7 +47,7 @@ export const TimerDisplay: React.FC<TimerDisplayProps> = ({
       </div>
       
       <div className="relative group cursor-pointer hover:scale-105 transition-transform duration-300">
-        <div className="absolute inset-0 bg-gradient-to-br  from-[#FFEB3B] to-[#B71C1C] opacity-75 rounded-2xl transform -rotate-2" />
+        <div className="absolute inset-0 bg-gradient-to-br  from-primary to-[#85A947] opacity-75 rounded-2xl transform -rotate-2" />
         <div className="relative bg-black/50 backdrop-blur-lg rounded-2xl p-12 border border-white/10">
           <div className="text-8xl font-bold text-white tabular-nums font-mono">
             {formatTime(state.timeLeft)}
@@ -61,29 +61,29 @@ export const TimerDisplay: React.FC<TimerDisplayProps> = ({
           className="p-4 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 transition-all transform hover:scale-110"
         >
           {state.isRunning ? 
-            <Pause size={28} className="text-[#FFEB3B]" /> :
-            <Timer size={28} className="text-[#FFEB3B]" />
+            <Pause size={28} className="text-primary" /> :
+            <Timer size={28} className="text-primary" />
           }
         </button>
         <button
           onClick={onReset}
           className="p-4 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 transition-all transform hover:scale-110"
         >
-          <RotateCcw size={28} className="text-[#FFEB3B]" />
+          <RotateCcw size={28} className="text-primary" />
         </button>
         <button
           onClick={onSkip}
           className="p-4 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 transition-all transform hover:scale-110"
         >
-          <SkipForward size={28} className="text-[#FFEB3B]" />
+          <SkipForward size={28} className="text-primary" />
         </button>
         <button
           onClick={() => setIsSoundEnabled(!isSoundEnabled)}
           className="p-4 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 transition-all transform hover:scale-110"
         >
           {isSoundEnabled ? 
-            <Volume2 size={28} className="text-[#FFEB3B]" /> :
-            <VolumeX size={28} className="text-[#FFEB3B]" />
+            <Volume2 size={28} className="text-primary" /> :
+            <VolumeX size={28} className="text-primary" />
           }
         </button>
       </div>

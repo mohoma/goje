@@ -28,7 +28,7 @@ function App() {
           <div className="flex justify-between items-center">
             <div
                 className="text-4xl font-bold text-center ">
-              <span className="bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#C62300] to-[#F14A00] bg-clip-text text-transparent">
                 Goje
               </span>
               <span className="pl-1">🍅</span>
@@ -39,7 +39,7 @@ function App() {
               onClick={() => setShowSettings(!showSettings)}
               className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all"
             >
-              <SettingsIcon className="w-6 h-6 text-[#FFEB3B]" />
+              <SettingsIcon className="w-6 h-6 text-primary" />
             </button>
           </div>
           
