@@ -116,8 +116,9 @@ export const Settings: React.FC<SettingsProps> = ({ settings, onSettingsChange }
                   type="number"
                   min="1"
                   value={session.duration}
-                  onChange={(e) => updateSession(index, { duration: Math.max(1, parseInt(e.target.value) || 1) })}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                  onChange={(e) => updateSession(index, { duration: Math.max(1, parseInt(e.target.value)) })}
+                  onBlur={(e) => updateSession(index, { duration: Math.max(1, parseInt(e.target.value) || 5) })}
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#FFEB3B] focus:border-transparent appearance-none"
                 />
               </div>
 

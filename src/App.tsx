@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Settings } from './components/Settings';
 import { TimerDisplay } from './components/TimerDisplay';
 import { useTimer } from './hooks/useTimer';
