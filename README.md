@@ -4,7 +4,7 @@
 
 ![Goje Pomodoro App](https://github.com/user-attachments/assets/a21c2a74-3d05-4782-9908-7f3ed9e79540)
 
-**Goje** (Persian for "tomato") is a highly configurable Pomodoro timer designed to boost your productivity. Unlike traditional Pomodoro timers, Goje allows you to set custom durations for each work session and break, making it flexible to suit your workflow.  
+**Goje** /ɡoʊ-dʒe/ (Persian for "tomato") is a highly configurable Pomodoro timer designed to boost your productivity. Unlike traditional Pomodoro timers, Goje allows you to set custom durations for each work session and break, making it flexible to suit your workflow.  
 
 For example:  
 - Session 1: 30 minutes work, 5 minutes short-break  
@@ -21,6 +21,7 @@ Goje is live and ready to use at [goje.vercel.app](https://goje.vercel.app).
 ## TODO 🛠️  
 [X] Save timer settings  
 [&ensp;] Preserve timer state across page refreshes  
+[&ensp;] Add info button next to settings for credits  
 [&ensp;] Add the option to enable/disable dark theme  
 [&ensp;] Add the license file  
 
