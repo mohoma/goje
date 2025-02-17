@@ -21,6 +21,7 @@ Goje is live and ready to use at [goje.vercel.app](https://goje.vercel.app).
 ## TODO 🛠️  
 [X] Save timer settings  
 [&ensp;] Preserve timer state across page refreshes  
+[&ensp;] Show a notification when the timer ends   
 [&ensp;] Add info button next to settings for credits  
 [&ensp;] Add the option to enable/disable dark theme  
 [&ensp;] Add the license file  
